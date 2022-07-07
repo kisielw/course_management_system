@@ -20,4 +20,6 @@ public class Enrollment {
 
     @OneToOne
     private Course course;
+
+    private boolean accepted;
 }

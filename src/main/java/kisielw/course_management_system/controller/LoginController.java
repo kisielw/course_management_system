@@ -10,4 +10,19 @@ public class LoginController {
     public String loginPage(){
         return "login";
     }
+
+    @GetMapping("/admin/panel")
+    public String showAdminPanel() {
+        return "admin_panel";
+    }
+
+    @GetMapping("/host/panel")
+    public String showHostPanel() {
+        return "host_panel";
+    }
+
+    @GetMapping("/student/panel")
+    public String showStudentPanel() {
+        return "student_panel";
+    }
 }
