@@ -4,31 +4,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class OrganisedCourse{
+public class Lesson {
 
     @Id
     @GeneratedValue
     private Integer id;
 
     @ManyToOne
-    private Course course;
+    private OrganisedClassBlock organisedClassBlock;
 
     private LocalDateTime startDateTime;
 
     private LocalDateTime endDateTime;
-
-    @OneToMany
-    private List<OrganisedClassBlock> classBlocks;
-
-    @ManyToMany
-    private List<Student> students;
-
-
 }
