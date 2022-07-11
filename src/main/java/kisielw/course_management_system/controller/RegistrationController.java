@@ -2,6 +2,8 @@ package kisielw.course_management_system.controller;
 
 import kisielw.course_management_system.model.User;
 import kisielw.course_management_system.repository.UserRepository;
+import kisielw.course_management_system.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Slf4j
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @GetMapping(path = "/registration")
     public ModelAndView showRegistrationForm() {
@@ -25,8 +28,13 @@ public class RegistrationController {
 
     @PostMapping(path = "/register")
     public String handleNewUser(@ModelAttribute("user") User user) {
-        System.out.println(user);
-        userRepository.save(user);
-        return "login";
+        log.info("Handled new user: " + user);
+
+        if (userService.existsByUsername(user.getUsername())) {
+            return "registration";
+        }
+
+        userService.save(user);
+        return  "redirect:/login";
     }
 }
