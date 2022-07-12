@@ -1,4 +1,4 @@
-package kisielw.course_management_system.service;
+package kisielw.course_management_system.service.impl;
 
 import kisielw.course_management_system.model.User;
 import kisielw.course_management_system.repository.UserRepository;
