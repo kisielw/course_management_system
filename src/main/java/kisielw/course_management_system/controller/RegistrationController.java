@@ -3,6 +3,7 @@ package kisielw.course_management_system.controller;
 import kisielw.course_management_system.model.User;
 import kisielw.course_management_system.repository.UserRepository;
 import kisielw.course_management_system.service.AutologinService;
+import kisielw.course_management_system.service.StudentService;
 import kisielw.course_management_system.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class RegistrationController {
     @Autowired
     private AutologinService autologinService;
 
+    @Autowired
+    private StudentService studentService;
+
     @GetMapping(path = "/registration")
     public ModelAndView showRegistrationForm() {
         ModelAndView modelAndView = new ModelAndView("registration");
@@ -40,6 +44,7 @@ public class RegistrationController {
         }
 
         userService.save(user);
+        studentService.save(user);
         autologinService.autologin(user.getUsername());
         return  "redirect:/student/panel";
     }

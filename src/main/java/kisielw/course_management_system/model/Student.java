@@ -11,6 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Student {
 
+    public Student(User user) {
+        this.user = user;
+    }
+
     @Id
     @GeneratedValue
     private Integer id;
