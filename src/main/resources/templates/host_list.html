@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Prowadzący</title>
+</head>
+<body>
+    <center>
+        <h1>Lista prowadzących zajęcia</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Nazwa użytkownika</th>
+                <th>Prowadzone bloki zajęć</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="host:${hosts}">
+                <td th:text="${host.id}"></td>
+                <td th:text="${host.user.name}"></td>
+                <td th:text="${host.user.surname}"></td>
+                <td th:text="${host.user.username}"></td>
+                <td><a th:href="@{/admin/host/blocks/{id}}">Wyświetl</a> </td>
+            </tr>
+            </tbody>
+
+
+
+        </table>
+    </center>
+</body>
+</html>
