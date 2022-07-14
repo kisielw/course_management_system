@@ -30,11 +30,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(User user, String roleName) {
         //TODO setActive(false) -> mail do użytkownika z linkiem aktywacyjnym
         user.setActive(true);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(List.of(roleRepository.findByName("STUDENT")));
+        user.setRoles(List.of(roleRepository.findByName(roleName)));
         userRepository.save(user);
     }
 }

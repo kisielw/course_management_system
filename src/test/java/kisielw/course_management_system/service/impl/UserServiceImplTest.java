@@ -46,7 +46,7 @@ class UserServiceImplTest {
                 .build();
 
         //when
-        userService.save(user);
+        userService.save(user, "STUDENT");
 
         //then
         Assertions.assertEquals(1, userRepository.findAll().size());

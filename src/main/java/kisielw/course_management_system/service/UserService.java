@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
 
-    void save(User user);
+    void save(User user, String roleName);
 
     boolean existsByUsername(String username);
 }

@@ -11,6 +11,10 @@ import java.util.List;
 @Data
 public class Host {
 
+    public Host(User user) {
+        this.user = user;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

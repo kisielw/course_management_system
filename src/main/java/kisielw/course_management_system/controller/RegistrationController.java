@@ -43,7 +43,7 @@ public class RegistrationController {
             return "registration";
         }
 
-        userService.save(user);
+        userService.save(user, "STUDENT");
         studentService.save(user);
         autologinService.autologin(user.getUsername());
         return  "redirect:/student/panel";
