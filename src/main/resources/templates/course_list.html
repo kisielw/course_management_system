@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kursy</title>
+</head>
+<body>
+    <center>
+        <h1>Zorganizowane kursy</h1>
+
+        <!-- TODO checkbox -> pokaż tylko niezakończone i tylko zakończone -->
+
+        <div th:each="course:${courses}">
+            <h3 th:text="${course.id}. ${course.name}"></h3>
+
+            <!-- id -->
+            <!-- nazwa -->
+            <!-- ilość miejsc -->
+            <!-- ilość dostępnych miejsc -->
+            <!-- link do wyświetlenia listy bloków -->
+            <!-- link do wyświetlenia listy uczestników -->
+            <!-- informacja, czy kurs jest zakończony -->
+
+        </div>
+
+    </center>
+</body>
+</html>
